@@ -1,0 +1,1 @@
+The most difficult thing in this step is knowing what needs to be changed and retopoed. I know a few parts that were pointed out,, but I'm not too sure how it will need to move, because I've never seen a rig that moves without separate parts moving. 
