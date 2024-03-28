@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/FishGameTest.unity
+    guid: 81d85b3839c0e9740b2ab790f8f780f6
   m_configObjects: {}

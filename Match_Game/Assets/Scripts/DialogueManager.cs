@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events; // Import UnityEvents namespace
 using TMPro;
+
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
-
     public Animator animator;
     
+    public UnityEvent onDialogueEnd; // UnityEvent to be invoked when the dialogue ends
+
     private Queue<string> sentences;
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -18,9 +22,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("DialogueIsOpen", true);
-        
         nameText.text = dialogue.name;
-        
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -57,5 +59,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("DialogueIsOpen", false);
+        // Invoke the UnityEvent when the dialogue ends
+        onDialogueEnd?.Invoke();
     }
 }
