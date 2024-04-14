@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events; 
 using TMPro;
+
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
-
     public Animator animator;
     
+    public UnityEvent onDialogueEnd; 
+
     private Queue<string> sentences;
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -18,9 +22,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("DialogueIsOpen", true);
-        
         nameText.text = dialogue.name;
-        
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -47,15 +49,19 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
+        float typingSpeed = 0.05f; // Adjust this value to control the speed (lower is slower)
+
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(typingSpeed); // Add a delay between characters
         }
     }
+
 
     void EndDialogue()
     {
         animator.SetBool("DialogueIsOpen", false);
+        onDialogueEnd?.Invoke();
     }
 }
