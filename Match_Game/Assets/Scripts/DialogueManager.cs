@@ -63,5 +63,6 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("DialogueIsOpen", false);
         onDialogueEnd?.Invoke();
+        // Invoke the UnityEvent when the dialogue ends
     }
 }
