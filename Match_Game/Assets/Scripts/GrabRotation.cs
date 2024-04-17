@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class GrabRotation : MonoBehaviour
 {
-    private float rotationSpeed = 10f;
+    public float rotationSpeed = 10f;
+    public bool isRotatable = true; // Toggle rotation behavior
+
     private bool isRotating = false;
     private Vector2 lastTouchPosition;
 
     private void OnMouseDown()
     {
-        isRotating = true;
-        lastTouchPosition = Input.mousePosition;
+        if (isRotatable) // Check if rotation is allowed
+        {
+            isRotating = true;
+            lastTouchPosition = Input.mousePosition;
+        }
     }
 
     private void OnMouseUp()
