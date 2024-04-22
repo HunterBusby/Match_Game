@@ -69,3 +69,7 @@ Match_Game/UserSettings/
 *.png
 
 GameBuilds/
+
+*.jpg
+
+GameBuilds_BurstDebugInformation_DoNotShip/
