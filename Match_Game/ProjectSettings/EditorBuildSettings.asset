@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: da05c82042ecb544ba2777abd739e8ab
   - enabled: 1
@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FishGameTest.unity
     guid: 81d85b3839c0e9740b2ab790f8f780f6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ClueFinderScene.unity
     guid: 5fbe4c8b3b332324e852103a0bb20cc6
   m_configObjects: {}

@@ -10,32 +10,34 @@ public class GrabRotation : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (isRotatable) // Check if rotation is allowed
+        if (isRotatable)
         {
             isRotating = true;
             lastTouchPosition = Input.mousePosition;
         }
     }
 
-    private void OnMouseUp()
-    {
-        isRotating = false;
-    }
-
-    private void OnMouseDrag()
+    private void Update()
     {
         if (isRotating)
         {
-            Vector2 currentTouchPosition = Input.mousePosition;
-            Vector2 touchDelta = currentTouchPosition - lastTouchPosition;
+            if (Input.GetMouseButton(0)) // Check if left mouse button is held down
+            {
+                Vector2 currentTouchPosition = Input.mousePosition;
+                Vector2 touchDelta = currentTouchPosition - lastTouchPosition;
 
-            float rotationX = -touchDelta.y * rotationSpeed * Time.deltaTime;
-            float rotationY = touchDelta.x * rotationSpeed * Time.deltaTime;
+                float rotationX = -touchDelta.y * rotationSpeed * Time.deltaTime;
+                float rotationY = touchDelta.x * rotationSpeed * Time.deltaTime;
 
-            transform.Rotate(Vector3.up, rotationY, Space.World); 
-            transform.Rotate(Vector3.right, rotationX, Space.World); 
+                transform.Rotate(Vector3.up, rotationY, Space.World);
+                transform.Rotate(Vector3.right, rotationX, Space.World);
 
-            lastTouchPosition = currentTouchPosition;
+                lastTouchPosition = currentTouchPosition;
+            }
+            else
+            {
+                isRotating = false; // Stop rotating if left mouse button is released
+            }
         }
     }
 }

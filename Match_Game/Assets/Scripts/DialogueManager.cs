@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
-        float typingSpeed = 0.05f; // Adjust this value to control the speed (lower is slower)
+        float typingSpeed = 0.005f; // Adjust this value to control the speed (Higher is slower)
 
         foreach (char letter in sentence.ToCharArray())
         {
@@ -65,4 +65,6 @@ public class DialogueManager : MonoBehaviour
         onDialogueEnd?.Invoke();
         // Invoke the UnityEvent when the dialogue ends
     }
+    
+    
 }
